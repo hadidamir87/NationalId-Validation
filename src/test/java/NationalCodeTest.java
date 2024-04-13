@@ -1,7 +1,8 @@
 import org.example.NationalCode;
 import org.example.ValidationNationalCode;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
 
 import java.util.Date;
 
@@ -11,7 +12,7 @@ public class NationalCodeTest {
     public  void testValidNationalCode(){
         NationalCode nationalCode=new NationalCode("0083034544",new Date(),false);
         validationNationalCode.validateNationalCode(nationalCode);
-        Assertions.assertEquals(true,nationalCode.getValid());
+        assertEquals(true,nationalCode.getValid());
     }
 
     @Test
@@ -19,7 +20,7 @@ public class NationalCodeTest {
         NationalCode nationalCode=new NationalCode("0480576531",new Date(),false);
 
         String testState= validationNationalCode.getStateCode(nationalCode);
-        Assertions.assertEquals("048",testState);
+        assertEquals("048",testState);
     }
 
     @Test
@@ -27,6 +28,6 @@ public class NationalCodeTest {
         NationalCode nationalCode=new NationalCode("2130588263",new Date(),false);
 
         String testUniq= validationNationalCode.getPersonUniqueCode(nationalCode);
-        Assertions.assertEquals("058826",testUniq);
+        assertEquals("058826",testUniq);
     }
 }
